@@ -14,22 +14,22 @@
                 <h4>Formulario</h4>
             </div>
             <div class="mb-2">
-                <form>
+                <form method="post">
                     <div class="mb-2">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" name="nombre" class="form-control" required>
+                        <input type="text" name="nombre" id="nombre" class="form-control" required>
                     </div>
                     <div class="mb-2">
                       <label for="email" class="form-label">Correo electronico</label>
-                      <input type="email" name="email" class="form-control" required>
+                      <input type="email" name="email" id="email" class="form-control" required>
                     </div>
                     <div class="mb-2">
                       <label for="contraseña" class="form-label">Contraseña</label>
-                      <input type="password" name="contraseña" class="form-control" required>
+                      <input type="password" name="contraseña" id="contraseña" class="form-control" required>
                     </div>
                     <div class="mb-2">
                         <label for="edad" class="form-label">Edad</label>
-                        <input type="number" name="edad"class="form-control" required>
+                        <input type="number" name="edad" id="edad" class="form-control" required>
                     </div>
                     <div class="mb-2">
                         <label for="mensaje">Mensaje</label>
@@ -50,5 +50,26 @@
             </div>
         </div>
     </main>
+
+<?php
+    
+    if(isset($_REQUEST['nombre'])){
+        $nombre=$_REQUEST['nombre'];
+        $email=$_REQUEST['email'];
+        $contraseña=$_REQUEST['contraseña'];
+        $edad=$_REQUEST['edad'];
+        $mensaje=$_REQUEST['mensaje'];
+        $genero=$_REQUEST['genero'];
+        $salida='<div class="alert alert-primary">';
+        $salida.='<strong>Nombre: </strong>'.$nombre;
+        $salida.='<br><strong>Correo: </strong>'.$email;
+        $salida.='<br><strong>Contraseña: </strong>'.$contraseña;
+        $salida.='<br><strong>Edad: </strong>'.$edad;
+        $salida.='<br><strong>Mensaje: </strong>'.$mensaje;
+        $salida.='<br><strong>Genero: </strong>'.$genero;
+        $salida.='</div>';
+        echo $salida;
+    }
+?>
 </body>
 </html>
